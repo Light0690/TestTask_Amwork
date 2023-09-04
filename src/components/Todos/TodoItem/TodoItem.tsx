@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { faker } from "@faker-js/faker";
+
+import { getFormatDate } from "../../../helpers/Date";
 
 import { ITodo } from "../../../interfaces/ITodo";
 
@@ -10,6 +13,15 @@ import styles from "./TodoItem.module.scss";
 
 const TodoItem = ({ id, title, completed }: ITodo) => {
   const [checked, setChecked] = useState(completed);
+
+  const startDate = faker.date.anytime();
+  const endDate = faker.date.future({ refDate: startDate });
+
+  const startDateTSX = getFormatDate(startDate);
+  const endDateTSX = getFormatDate(endDate);
+  const taskTSX = faker.lorem.sentence();
+  const UiText1 = faker.lorem.word()
+  const UiText2 = faker.lorem.word()
 
   return (
     <div className={styles.wrapper}>
@@ -26,16 +38,16 @@ const TodoItem = ({ id, title, completed }: ITodo) => {
         </label>
       </div>
       <div className={styles.wrapper__dates}>
-        <div>date</div>
-        <div>date</div>
+        <div>{startDateTSX}</div>
+        <div>{endDateTSX}</div>
       </div>
       <div>
-        <p>task task task</p>
+        <p>{taskTSX}</p>
       </div>
       <div className={styles.wrapper__footer}>
         <div className={styles.wrapper__tags}>
-          <UITag sheme="primary" text={"uitag"} />
-          <UITag sheme="normal" text={"uitag"} />
+          <UITag sheme="primary" text={UiText1} />
+          <UITag sheme="normal" text={UiText2} />
         </div>
         <div>
           <img
