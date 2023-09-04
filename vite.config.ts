@@ -15,5 +15,8 @@ export default defineConfig({
       "@pages": path.resolve(__dirname, "./src/pages")
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1600,
+  },
   plugins: [react()],
 });
