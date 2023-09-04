@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,memo } from "react";
 import { faker } from "@faker-js/faker";
 
 import { getFormatDate } from "../../../helpers/Date";
@@ -12,7 +12,7 @@ import todo_avatar from "../../../assets/todo_avatar.jpg";
 
 import styles from "./TodoItem.module.scss";
 
-const TodoItem = ({ id, title, completed }: ITodo) => {
+const TodoItem = memo(({ id, title, completed }: ITodo) => {
   const [checked, setChecked] = useState(completed);
 
   const startDate = faker.date.anytime();
@@ -20,7 +20,7 @@ const TodoItem = ({ id, title, completed }: ITodo) => {
 
   const startDateTSX = getFormatDate(startDate);
   const endDateTSX = getFormatDate(endDate);
-  const taskTSX = getReductionStr(faker.lorem.sentence(),34);
+  const taskTSX = getReductionStr(faker.lorem.sentence(),30);
   const UiText1 = faker.lorem.word()
   const UiText2 = faker.lorem.word()
 
@@ -62,6 +62,6 @@ const TodoItem = ({ id, title, completed }: ITodo) => {
       </div>
     </div>
   );
-};
+});
 
 export default TodoItem;
