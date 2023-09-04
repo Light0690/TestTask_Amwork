@@ -9,16 +9,17 @@ import styles from "./TodoGroup.module.scss";
 
 interface Props {
   todos: ITodo[];
-  setIsVisible: any;
+  setIsVisible: Function;
+  error: string | unknown;
 }
 
-const TodoGroup = ({ todos, setIsVisible }: Props) => {
+const TodoGroup = ({ todos, setIsVisible, error }: Props) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
 
   useEffect(() => {
-    setIsVisible(inView)
+    setIsVisible(inView);
   }, [inView]);
 
   const todosTSX = todos.map((todo) => {
@@ -34,6 +35,7 @@ const TodoGroup = ({ todos, setIsVisible }: Props) => {
 
   return (
     <div ref={ref} className={styles.wrapper}>
+      {error ? <h2>Усп, что-то пошло не так</h2> : ''}
       {todosTSX}
       {todos.length ? <div ref={ref}></div> : ""}
     </div>
