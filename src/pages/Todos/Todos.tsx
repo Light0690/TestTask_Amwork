@@ -9,19 +9,27 @@ import TodoGroup from "../../components/Todos/TodoGroup";
 
 import styles from "./Todos.module.scss";
 
-const Todo = () => {
+const Todos = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
+  const [page, setPage] = useState(1);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    getTodosByPage(1).then((res) => setTodos(res));
-  }, []);
+    (async () => {
+      if (isVisible && page <= 10) {
+        const response = await getTodosByPage(page);
+        setPage((prev) => prev + 1);
+        setTodos((prev) => [...prev, ...response]);
+      }
+    })();
+  }, [isVisible]);
 
   return (
     <div className={styles.wrapper}>
-      <TodosHeader todosLength={todos.length}/>
-      <TodoGroup todos={todos} />
+      <TodosHeader todosLength={todos.length} />
+      <TodoGroup todos={todos} setIsVisible={setIsVisible} />
     </div>
   );
 };
 
-export default Todo;
+export default Todos;

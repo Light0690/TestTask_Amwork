@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
 import { ITodo } from "../../../interfaces/ITodo";
 
 import TodoItem from "../TodoItem";
@@ -6,9 +9,18 @@ import styles from "./TodoGroup.module.scss";
 
 interface Props {
   todos: ITodo[];
+  setIsVisible: any;
 }
 
-const TodoGroup = ({ todos }: Props) => {
+const TodoGroup = ({ todos, setIsVisible }: Props) => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    setIsVisible(inView)
+  }, [inView]);
+
   const todosTSX = todos.map((todo) => {
     return (
       <TodoItem
@@ -20,7 +32,12 @@ const TodoGroup = ({ todos }: Props) => {
     );
   });
 
-  return <div className={styles.wrapper}>{todosTSX}</div>;
+  return (
+    <div ref={ref} className={styles.wrapper}>
+      {todosTSX}
+      {todos.length ? <div ref={ref}></div> : ""}
+    </div>
+  );
 };
 
 export default TodoGroup;
