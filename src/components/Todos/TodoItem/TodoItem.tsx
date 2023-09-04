@@ -1,14 +1,14 @@
 import { useState,memo } from "react";
 import { faker } from "@faker-js/faker";
 
-import { getFormatDate } from "../../../helpers/Date";
-import { getReductionStr } from "../../../helpers/getReductionStr";
+import { getFormatDate } from "@helpers/Date";
+import { getReductionStr } from "@helpers/getReductionStr";
 
-import { ITodo } from "../../../interfaces/ITodo";
+import { ITodo } from "@interfaces/ITodo";
 
-import UITag from "../../UI/UITag/UITag";
+import UITag from "@ui/UITag";
 
-import todo_avatar from "../../../assets/todo_avatar.jpg";
+import todo_avatar from "@assets/todo_avatar.jpg";
 
 import styles from "./TodoItem.module.scss";
 

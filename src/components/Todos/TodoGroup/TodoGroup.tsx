@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
-import { ITodo } from "../../../interfaces/ITodo";
+import { ITodo } from "@interfaces/ITodo";
 
 import TodoItem from "../TodoItem";
 

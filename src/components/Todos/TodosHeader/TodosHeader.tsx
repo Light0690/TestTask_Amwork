@@ -1,5 +1,5 @@
-import UICounter from "../../UI/UICounter/UICounter";
-import UIPlus from "../../UI/UIPlus/UIPlus";
+import UICounter from "@ui/UICounter";
+import UIPlus from "@ui/UIPlus";
 
 import styles from "./TodosHeader.module.scss";
 

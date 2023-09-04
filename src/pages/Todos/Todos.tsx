@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { getTodosByPage } from "../../api/getTodos";
+import { getTodosByPage } from "@api/getTodos";
 
-import { ITodo } from "../../interfaces/ITodo";
+import { ITodo } from "@interfaces/ITodo";
 
-import TodosHeader from "../../components/Todos/TodosHeader";
-import TodoGroup from "../../components/Todos/TodoGroup";
+import TodosHeader from "@components/Todos/TodosHeader";
+import TodoGroup from "@components/Todos/TodoGroup";
 
 import styles from "./Todos.module.scss";
 

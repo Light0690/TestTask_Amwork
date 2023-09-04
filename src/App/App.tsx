@@ -1,4 +1,4 @@
-import Todo from "../pages/Todos";
+import Todo from "@pages/Todos";
 
 const App = () => {
   return (
