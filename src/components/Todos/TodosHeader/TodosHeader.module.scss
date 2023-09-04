@@ -1,0 +1,17 @@
+.wrapper {
+  width: 320px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(53, 207, 33);
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 5px;
+  }
+}

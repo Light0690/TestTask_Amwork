@@ -4,7 +4,9 @@ import { getTodosByPage } from "../../api/getTodos";
 
 import { ITodo } from "../../interfaces/ITodo";
 
+import TodosHeader from "../../components/Todos/TodosHeader";
 import TodoGroup from "../../components/Todos/TodoGroup";
+
 import styles from "./Todos.module.scss";
 
 const Todo = () => {
@@ -16,6 +18,7 @@ const Todo = () => {
 
   return (
     <div className={styles.wrapper}>
+      <TodosHeader todosLength={todos.length}/>
       <TodoGroup todos={todos} />
     </div>
   );

@@ -7,8 +7,16 @@ const meta = {
 
 export default meta;
 
-export const Example = {
+export const Primary = {
   args: {
+    sheme:'primary',
+    text:'primary'
+  },
+} satisfies Meta<typeof UITag>;
 
+export const Normal = {
+  args: {
+    sheme:'normal',
+    text:'normal'
   },
 } satisfies Meta<typeof UITag>;
