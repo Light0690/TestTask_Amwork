@@ -2,6 +2,7 @@ import { useState } from "react";
 import { faker } from "@faker-js/faker";
 
 import { getFormatDate } from "../../../helpers/Date";
+import { getReductionStr } from "../../../helpers/getReductionStr";
 
 import { ITodo } from "../../../interfaces/ITodo";
 
@@ -19,7 +20,7 @@ const TodoItem = ({ id, title, completed }: ITodo) => {
 
   const startDateTSX = getFormatDate(startDate);
   const endDateTSX = getFormatDate(endDate);
-  const taskTSX = faker.lorem.sentence();
+  const taskTSX = getReductionStr(faker.lorem.sentence(),34);
   const UiText1 = faker.lorem.word()
   const UiText2 = faker.lorem.word()
 
@@ -34,7 +35,7 @@ const TodoItem = ({ id, title, completed }: ITodo) => {
           className={styles.wrapper__checkbox}
         />
         <label htmlFor={`checkbox${id}`} className={styles.wrapper__title}>
-          {title}
+          {getReductionStr(title,90)}
         </label>
       </div>
       <div className={styles.wrapper__dates}>
