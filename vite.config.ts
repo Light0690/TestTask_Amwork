@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base : 'https://light0690.github.io/TestTask_Amwork/',
+  base : '/TestTask_Amwork/',
   build: {
     chunkSizeWarningLimit:3000,
     rollupOptions: {
